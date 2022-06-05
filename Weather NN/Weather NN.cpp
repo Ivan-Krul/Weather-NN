@@ -3,14 +3,21 @@
 
 #include "Weather NN.h"
 
-
+unsigned __int64 Random::_Sseed = 0;
+unsigned __int64 Random::_Sx = Random::_Sseed;
 
 int main() {
 	poinve<int> mas;
-	mas.init(4);
+	mas.init(8);
 	
-	mas[1] = 4;
+	for (size_t i = 0;i < mas.size();i++)
+		mas[i] = rand();
 
-	printf("Hello, CMake.\n%i",mas[1]);
+	mas.resize(20);
+
+	printf("Hello, CMake.\n");
+	for (int i = 0;i < mas.size();i++)
+		printf("%i ", mas[i]);
+
 	return 0;
 }
