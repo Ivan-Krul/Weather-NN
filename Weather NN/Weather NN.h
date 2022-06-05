@@ -5,5 +5,6 @@
 
 #include <stdio.h>
 #include "Neural Network/Neural Network.h"
+#include "Poinve/poinve.h"
 
 // TODO: установите здесь ссылки на дополнительные заголовки, требующиеся для программы.

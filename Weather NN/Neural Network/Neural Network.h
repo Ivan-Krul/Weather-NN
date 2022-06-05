@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "../Poinve/poinve.h"
 //#include <functional>
 
 class NeuralNetwork {
@@ -8,8 +9,13 @@ class NeuralNetwork {
 
 	float _coef_learn = 0.1f;
 
+	poinve<var> _neuron_inp;
+	poinve<poinve<var>> _weigth;
+
 	// TODO: зробити вказівник-масив для функції активації
-	//std::function<var(var)>* 
+	//poinve<std::function<var(var)>> _type_sys;
+
+	poinve<var> _neuron_out;
 
 	void forward(var* Li,count size_li, var* W, count size_w, var* Lo, count size_lo) {
 		for (count o = 0;o < size_lo;o++) {

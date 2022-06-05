@@ -3,11 +3,14 @@
 
 #include "Weather NN.h"
 
-using namespace std;
 
-int main()
-{
+
+int main() {
+	poinve<int> mas;
+	mas.init(4);
 	
-	printf("Hello, CMake.\n");
+	mas[1] = 4;
+
+	printf("Hello, CMake.\n%i",mas[1]);
 	return 0;
 }
