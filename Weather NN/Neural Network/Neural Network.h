@@ -1,26 +1,22 @@
 #pragma once
 #include <memory>
-#include "../Random/Random.h"
+#include "../Define.h"
+#include "Neuron.h"
+#include "PointMassiveLib.h"
 //#include <functional>
 
 class NeuralNetwork {
 	typedef float var;
 
-	typedef struct {
-		var value;
-		var error;
-	} neuron;
-
-	float CoeficientLearn = 0.1f;
+	float			CoeficientLearn = 0.1f;
 	
-	size_t NeuronInputSize;
-	var* NeuronInput;
-	size_t NeuronHideSize;
-	size_t* NeuronHideSizeSize;
-	neuron** NeuronHide;
-	var** Weigth;
-	size_t NeuronOutputSize;
-	neuron* NeuronOutput;
+	var*			NeuronInput;
+	size_t			NeuronInputSize;
+	Neuron<var>**	NeuronHide;
+	size_t*			NeuronHideSizeSize;
+	size_t			NeuronHideSize;
+	Neuron<var>*	NeuronOutput; 
+	size_t			NeuronOutputSize;
 
 	// TODO: зробити вказівник-масив для функції активації
 	//poinve<std::function<var(var)>> _type_sys;

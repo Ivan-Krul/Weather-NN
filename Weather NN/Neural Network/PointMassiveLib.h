@@ -44,4 +44,16 @@ namespace point_massive {
 		for (size_t i = 0;i < new_size;i++)
 			mas[i] = fill;
 	}
+
+	template<typename _T> void resize_and_fill(
+		_T* mas,
+		size_t new_size,
+		_T func()
+	) {
+		delete[] mas;
+		mas = new _T[new_size];
+
+		for (size_t i = 0;i < new_size;i++)
+			mas[i] = func;
+	}
 }
