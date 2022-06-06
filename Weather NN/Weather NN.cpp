@@ -3,22 +3,11 @@
 
 #include "Weather NN.h"
 
-unsigned __int64 Random::_Sseed = 0;
-unsigned __int64 Random::_Sx = Random::_Sseed;
-
 int main() {
-	poinve<int> mas;
-	mas.init(8);
-	
-	for (size_t i = 0;i < mas.size();i++)
-		mas[i] = rand();
-
-	int a[4] = {1,2,3,4};
-	mas = a;
-
-	printf("Hello, CMake.\n");
-	for (int i = 0;i < mas.size();i++)
-		printf("%i ", mas[i]);
+	srand(0);
+	#ifdef DEBUG
+	printd("debug mode is activated\n");
+	#endif // DEBUG msg activation
 
 	return 0;
 }
