@@ -53,7 +53,7 @@ class NeuralNetwork {
 		}
 	}
 
-	void Forward(poinve<var>& Li, poinve<var>& W, poinve<var>& Lo) {
+	void Forward(poinve<var> Li, poinve<var> W, poinve<var>& Lo) {
 		for (size_t o = 0;o < Lo.size() - 1;o++) {
 			Lo[o] = 0;
 			for (size_t i = 0;i < Li.size();i++)
@@ -64,7 +64,7 @@ class NeuralNetwork {
 		}
 	}
 
-	void Backward(poinve<var>& Ei, poinve<var>& W, poinve<var>& Eo) {
+	void Backward(poinve<var>& Ei, poinve<var> W, poinve<var>& Eo) {
 
 		for (size_t i = 0;i < Ei.size()-1;i++) {
 			Ei[i] = 0;
@@ -73,7 +73,7 @@ class NeuralNetwork {
 		}
 	}
 
-	void Correcting(poinve<var>& Li, poinve<var>& W, poinve<var>& Lo, poinve<var>& Eo) {
+	void Correcting(poinve<var> Li, poinve<var>& W, poinve<var>& Lo, poinve<var>& Eo) {
 		for (size_t o = 0;o < Lo.size();o++) {
 			for (size_t i = 0;i < Li.size();i++) {
 				W[Li.size() * o + i] += _coef_learn * Li[i] * Eo[o] //;
@@ -127,7 +127,7 @@ class NeuralNetwork {
 	// створення нового шару прихованого шару нейронів не враховуючи нейрон зміщення
 	void push_hide_neurons(size_t lh_size) {
 		_neuron_hide.push_back(poinve<var>(lh_size + 1));
-		_error_hide.push_back(poinve<var>(lh_size));
+		_error_hide.push_back(poinve<var>(lh_size + 1));
 		_neuron_hide[_neuron_hide.size() - 1] = 1;
 
 		AdaptWeigth();
@@ -136,6 +136,64 @@ class NeuralNetwork {
 	void randomize() {
 		Random random;
 
+		for (size_t i = 0;i < _weigth.size();i++) {
+			for (size_t j = 0;j < _weigth[i].size();j++) {
+				_weigth[i][j] = random.nextf(-3, 3);
+			}
+		}
+	}
+
+	size_t input_size() {
+		return _neuron_inp.size();
+	}
+
+	poinve<var> calculate_result(poinve<var> input) {
+		if (input.size() + 1 == _neuron_inp.size()) {
+			for (size_t i = 0;i < _neuron_inp.size() - 1;i++)
+				_neuron_inp = input;
+
+			if (_neuron_hide.size() == 0)
+				Forward(_neuron_inp, _weigth[0], _neuron_out);
+			else {
+				for (size_t i = 0;i < _weigth.size();i++) {
+					if (i == 0)
+						Forward(_neuron_inp, _weigth[i], _neuron_hide[i]);
+					else if (i + 1 == _weigth.size())
+						Forward(_neuron_hide[i - 1], _weigth[i], _neuron_out);
+					else
+						Forward(_neuron_hide[i - 1], _weigth[i], _neuron_hide[i]);
+				}
+			}
+		}
+		else abort();
+
+		return _neuron_out;
+	}
+
+	void mark_error(poinve<var> answer) {
+		if (answer.size() == _error_out.size()) {
+			for (size_t i = 0;i < _error_out.size();i++)
+				_error_out[i] = answer[i] - _neuron_out[i];
+
+			for (size_t i = _weigth.size() - 1;i > 0;i++) {
+				if (i + 1 == _weigth.size())
+					Backward(_error_out, _weigth[i], _error_hide[i]);
+				else
+					Backward(_error_hide[i], _weigth[i], _error_hide[i + 1]);
+			}
+		}
+		else abort();
+	}
+
+	void correct() {
+		for (size_t i = _weigth.size() - 1;i >= 0;i++) {
+			if (i + 1 == _weigth.size())
+				Correcting(_neuron_hide[i - 1], _weigth[i], _neuron_out, _error_out);
+			else if (i == 0)
+				Correcting(_neuron_inp, _weigth[i], _neuron_hide[i], _error_hide[i]);
+			else
+				Correcting(_neuron_hide[i - 1], _weigth[i], _neuron_hide[i], _error_hide[i]);
+		}
 	}
 
 	~NeuralNetwork() {}

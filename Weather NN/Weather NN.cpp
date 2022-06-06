@@ -13,7 +13,8 @@ int main() {
 	for (size_t i = 0;i < mas.size();i++)
 		mas[i] = rand();
 
-	mas.resize(20);
+	int a[4] = {1,2,3,4};
+	mas = a;
 
 	printf("Hello, CMake.\n");
 	for (int i = 0;i < mas.size();i++)

@@ -68,6 +68,16 @@ template<class T> T& poinve<T>::operator[](size_t index) {
 }
 
 template<class T>
+T* poinve<T>::operator=(T var[]) {
+	size_t size = sizeof(var) / sizeof(T);
+	for (size_t i = 0;i < min(size,_size) ;i++) {
+		_pointer[i] = var[i];
+	}
+	return _pointer;
+}
+
+
+template<class T>
 void poinve<T>::resize(size_t size) {
 	if (_is_init) {
 		T* buf = new T[size];

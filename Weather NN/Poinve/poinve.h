@@ -2,6 +2,9 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#define min(a,b)(a<b? a:b)
+#define max(a,b)(a>b? a:b)
+
 template<class T> class poinve {
 	bool _is_init = false;
 	T* _pointer;
@@ -15,6 +18,7 @@ template<class T> class poinve {
 	bool is_init();
 
 	T& operator[](size_t index);
+	T* operator=(T var[]);
 	void resize(size_t size);
 	T* to_array();
 
