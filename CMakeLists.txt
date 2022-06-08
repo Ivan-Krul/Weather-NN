@@ -7,3 +7,5 @@ project ("Weather NN")
 
 # Включите подпроекты.
 add_subdirectory ("Weather NN")
+
+add_subdirectory("Ia")

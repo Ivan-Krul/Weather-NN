@@ -5,8 +5,11 @@
 #define DEBUG
 
 #ifdef DEBUG
-void printd(const char msg[]) {
-	printf("Debug: %s", msg);
+void printd(const char msg[],const char type = '\0') {
+	if(type != '\0')
+		printf("Debug: (%c) %s\n", type, msg);
+	else
+		printf("Debug: (NULL) %s\n", msg);
 }
 #endif // DEBUG
 
