@@ -89,7 +89,7 @@ void NeuralNetwork<var>::Forward(std::vector<neuron> Li, std::vector<neuron> Lo)
 
 		Lo[o]._val += Lo[o]._bias;
 		// TODO: видалити це
-		Lo[o]._val = var(1.0) / (var(1.0) + var(exp(-1.0 * Lo[o]._val)));
+		Lo[o]._val = 1.0 / (1.0 + exp(-1.0 * Lo[o]._val));
 	}
 
 	#ifdef DEBUG
@@ -203,7 +203,9 @@ void NeuralNetwork<var>::push_back(size_t size) {
 
 template<typename var>
 void NeuralNetwork<var>::input(std::vector<var> inp_neu) {
-	_inp_neu = inp_neu;
+	for (size_t i = 0;i < std::min(_inp_neu.size(), inp_neu.size());i++)
+		_inp_neu[i] = inp_neu[i];
+
 	#ifdef DEBUG
 	printd(
 		"class NeuralNetwork<var>.input(std::vector<var>) is done",

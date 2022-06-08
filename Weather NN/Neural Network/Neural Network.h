@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <cassert>
 #include "../Define.h"
 //#include <functional>
 
@@ -26,6 +27,10 @@ template <typename var> class NeuralNetwork {
 				else
 					_weight[i] = 0;
 
+			if (is_rand)
+				_bias = random::randbf(-3, 3);
+			else
+				_bias = 0;
 		}
 	};
 
