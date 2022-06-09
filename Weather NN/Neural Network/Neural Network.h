@@ -1,9 +1,7 @@
 #pragma once
 #include <vector>
-#include "../Define.h"
-#include "Neuron.h"
-//#include <functional>
-
+#include "../Define/Define.h"
+#include "Neuron/Neuron.h"
 template <typename var> class NeuralNetwork {
 	#ifdef DEBUG
 	public:
@@ -17,9 +15,6 @@ template <typename var> class NeuralNetwork {
 	std::vector<var> _inp_neu;
 	std::vector<std::vector<neuron<var>>> _hide_neu;
 	std::vector<neuron<var>> _out_neu;
-
-	// TODO: зробити вказівник-масив для функції активації
-	//poinve<std::function<var(var)>> _type_sys;
 
 	void Forward(var* Li, size_t size_li, var* W, size_t size_w, var* Lo, size_t size_lo);
 	void Backward(var* Ei, size_t size_li, var* W, size_t size_w, var* Eo, size_t size_lo);
@@ -48,8 +43,10 @@ template <typename var> class NeuralNetwork {
 	void finit();
 	~NeuralNetwork();
 };
+
 #include "Neural Network Private.cpp"
 #include "Neural Network Public.cpp"
+#include "Neural Network Private Pointers.cpp"
 
 using neu_netf = NeuralNetwork<float>;
 using neu_netd = NeuralNetwork<double>;

@@ -1,7 +1,9 @@
 ﻿// Weather NN.cpp: определяет точку входа для приложения.
 //
 
-#include "Weather NN.h"
+#include <stdio.h>
+#include "Neural Network/Neural Network.h"
+#include "Define/Define.h"
 
 int main() {
 	srand(0);
@@ -17,10 +19,11 @@ int main() {
 	nn.input(a);
 	a = nn.calculate();
 
-	for (int t = 0;t < 1000;t++) {
+	for (int t = 0;t < 100;t++) {
 		for (int i = 0;i < a.size();i++)
 			printf("%f ", a[i]);
 		printf("\n");
+
 
 		a = { 1.0f,0.0f };
 		nn.correct(a);

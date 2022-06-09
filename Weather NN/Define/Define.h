@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <cmath>
 
-//#define DEBUG
+#define DEBUG
 
 #ifdef DEBUG
 void printd(const char msg[],const char type = '\0') {

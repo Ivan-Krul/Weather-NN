@@ -8,6 +8,7 @@ template<typename var> class neuron {
 	var _bias = 0;
 	var _error = 0;
 
+
 	void init_weight(bool is_rand, size_t parent_l) {
 		_weight.resize(parent_l);
 
@@ -21,5 +22,9 @@ template<typename var> class neuron {
 			_bias = random::randbf(-3, 3);
 		else
 			_bias = 0;
+	}
+
+	var put() {
+		return _func(_val);
 	}
 };
