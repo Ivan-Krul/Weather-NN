@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <cmath>
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 void printd(const char msg[],const char type = '\0') {
@@ -46,7 +46,7 @@ namespace random {
 		return static_cast<__int8>(std::fmod(randll(), board));
 	}
 	float randbf(float board) {
-		return std::fmod(randll(), board);
+		return std::fmodf(randll(), board);
 	}
 	double randbd(double board) {
 		return std::fmod(randll(), board);

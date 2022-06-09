@@ -9,21 +9,31 @@ int main() {
 	printd("debug mode is activated",'D');
 	#endif // DEBUG msg activation
 
-	neu_netf nn(2, 5, 0.1f, true);
+	neu_netf nn(2, 2, 0.5f, true);
 	nn.push_back(2);
 	nn.push_back(2);
-	std::vector<float> a = { 0.1,0.5 };
+	std::vector<float> a = { 0.1f,0.5f };
 
 	nn.input(a);
 	a = nn.calculate();
 
-	for (int i = 0;i < a.size();i++)
-		printf("%f ",a[i]);
-	printf("\n");
+	for (int t = 0;t < 1000;t++) {
+		for (int i = 0;i < a.size();i++)
+			printf("%f ", a[i]);
+		printf("\n");
+
+		a = { 1.0f,0.0f };
+		nn.correct(a);
+
+		a = { 0.1f,0.5f };
+		nn.input(a);
+		a = nn.calculate();
+	}
 
 	#ifdef DEBUG
 	printd("application is finished work", 'D');
-	#endif // DEBUG msg activation
+	#else
 	(void)getchar();
+	#endif // DEBUG msg activation
 	return 0;
 }

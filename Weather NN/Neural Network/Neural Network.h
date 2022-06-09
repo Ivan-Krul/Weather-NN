@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include <cassert>
 #include "../Define.h"
+#include "Neuron.h"
 //#include <functional>
 
 template <typename var> class NeuralNetwork {
@@ -11,35 +11,12 @@ template <typename var> class NeuralNetwork {
 	private:
 	#endif // DEBUG
 
-	class neuron {
-		public:
-		std::vector<var> _weight;
-		var _val = 0;
-		var _bias = 0;
-		var _error = 0;
-
-		void init_weight(bool is_rand, size_t parent_l) {
-			_weight.resize(parent_l);
-
-			for (size_t i = 0;i < parent_l;i++)
-				if (is_rand)
-					_weight[i] = random::randbf(-3, 3);
-				else
-					_weight[i] = 0;
-
-			if (is_rand)
-				_bias = random::randbf(-3, 3);
-			else
-				_bias = 0;
-		}
-	};
-
 	float _coef_learn;
 	bool _is_rand;
 
 	std::vector<var> _inp_neu;
-	std::vector<std::vector<neuron>> _hide_neu;
-	std::vector<neuron> _out_neu;
+	std::vector<std::vector<neuron<var>>> _hide_neu;
+	std::vector<neuron<var>> _out_neu;
 
 	// TODO: зробити вказівник-масив для функції активації
 	//poinve<std::function<var(var)>> _type_sys;
@@ -48,10 +25,11 @@ template <typename var> class NeuralNetwork {
 	void Backward(var* Ei, size_t size_li, var* W, size_t size_w, var* Eo, size_t size_lo);
 	void Correcting(var* Li, size_t size_li, var* W, size_t size_w, var* Lo, var* Eo, size_t size_lo);
 
-	void Forward(std::vector<var> Li, std::vector<neuron> Lo);
-	void Forward(std::vector<neuron> Li, std::vector<neuron> Lo);
-	void Backward(std::vector<neuron> Li, std::vector<neuron> Lo);
-	void Correcting(std::vector<neuron> Li, std::vector<neuron> Lo);
+	void Forward(std::vector<var>& Li, std::vector<neuron<var>>& Lo);
+	void Forward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo);
+	void Backward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo);
+	void Correcting(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo);
+	void Correcting(std::vector<var>& Li, std::vector<neuron<var>>& Lo);
 
 	void AdaptWeight();
 
@@ -63,14 +41,15 @@ template <typename var> class NeuralNetwork {
 
 	void input(std::vector<var> inp_neu);
 	std::vector<var> calculate();
-	void correct();
+	void correct(std::vector<var> must_be);
 
 	void reinit(size_t neu_inp, size_t neu_out, float coef_learn, bool is_rand);
 
 	void finit();
 	~NeuralNetwork();
 };
-#include "Neural Network.cpp"
+#include "Neural Network Private.cpp"
+#include "Neural Network Public.cpp"
 
 using neu_netf = NeuralNetwork<float>;
 using neu_netd = NeuralNetwork<double>;
