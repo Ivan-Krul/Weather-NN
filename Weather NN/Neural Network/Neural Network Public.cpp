@@ -8,7 +8,7 @@ NeuralNetwork<var>::NeuralNetwork(
 	bool is_rand
 ) {
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is launched",'i');
+	printd("class NeuralNetwork<typename> is launched",'i');
 	#endif // DEBUG
 	init(neu_inp, neu_out, coef_learn, is_rand);
 }
@@ -29,7 +29,7 @@ void NeuralNetwork<var>::init(
 		_out_neu[i].init_weight(_is_rand,_inp_neu.size());
 
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is started succesful",'i');
+	printd("class NeuralNetwork<typename> is started succesful",'i');
 	#endif // DEBUG
 }
 
@@ -43,7 +43,7 @@ void NeuralNetwork<var>::push_back(size_t size) {
 
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<var>.push_back(size_t) is done",
+		"class NeuralNetwork<typename>.push_back(size_t) is done",
 		'i');
 	#endif // DEBUG
 }
@@ -55,7 +55,7 @@ void NeuralNetwork<var>::input(std::vector<var> inp_neu) {
 
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<var>.input(std::vector<var>) is done",
+		"class NeuralNetwork<typename>.input(std::vector<typename>) is done",
 		'i');
 	#endif // DEBUG
 }
@@ -64,7 +64,7 @@ template<typename var>
 std::vector<var> NeuralNetwork<var>::calculate() {
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<var>.calculate() has starting",
+		"class NeuralNetwork<typename>.calculate() has starting",
 		'i');
 	#endif // DEBUG
 
@@ -83,7 +83,7 @@ std::vector<var> NeuralNetwork<var>::calculate() {
 
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<var>.calculate() is done",
+		"class NeuralNetwork<typename>.calculate() is done",
 		'i');
 	#endif // DEBUG
 	return out;
@@ -93,7 +93,7 @@ template<typename var>
 void NeuralNetwork<var>::correct(std::vector<var> must_be) {
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<var>.correct(std::vector<var>) has starting",
+		"class NeuralNetwork<typename>.correct(std::vector<typename>) has starting",
 		'i');
 	#endif // DEBUG
 
@@ -118,7 +118,7 @@ void NeuralNetwork<var>::correct(std::vector<var> must_be) {
 
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<var>.correct(std::vector<var>) is done",
+		"class NeuralNetwork<typename>.correct(std::vector<typename>) is done",
 		'i');
 	#endif // DEBUG
 }
@@ -131,7 +131,7 @@ void NeuralNetwork<var>::reinit(
 	bool is_rand
 ) {
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is starting restart", 'i');
+	printd("class NeuralNetwork<typename> is starting restart", 'i');
 	#endif // DEBUG
 	finit();
 	init(neu_inp,
@@ -139,7 +139,7 @@ void NeuralNetwork<var>::reinit(
 		coef_learn,
 		is_rand);
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is restarted succesful", 'i');
+	printd("class NeuralNetwork<typename> is restarted succesful", 'i');
 	#endif // DEBUG
 }
 
@@ -157,7 +157,7 @@ void NeuralNetwork<var>::finit() {
 	_out_neu.clear();
 
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is finished succesful", 'i');
+	printd("class NeuralNetwork<typename> is finished succesful", 'i');
 	#endif // DEBUG
 }
 
@@ -165,6 +165,6 @@ template <typename var>
 NeuralNetwork<var>::~NeuralNetwork() {
 	finit();
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is ended up", 'i');
+	printd("class NeuralNetwork<typename> is ended up", 'i');
 	#endif // DEBUG
 }

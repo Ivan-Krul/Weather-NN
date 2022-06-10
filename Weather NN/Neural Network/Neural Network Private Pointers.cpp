@@ -16,7 +16,7 @@ void NeuralNetwork<var>::Forward(
 	}
 
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>.Forward(var*,size_t,var*,size_t,var*,size_t) is done",
+	printd("class NeuralNetwork<typename>.Forward(typename*,size_t,typename*,size_t,typename*,size_t) is done",
 		'i');
 	#endif // DEBUG
 }
@@ -36,7 +36,7 @@ void NeuralNetwork<var>::Backward(
 	}
 
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>.Backward(var*,size_t,var*,size_t,var*,size_t) is done",
+	printd("class NeuralNetwork<typename>.Backward(typename*,size_t,typename*,size_t,typename*,size_t) is done",
 		'i');
 	#endif // DEBUG
 }
@@ -57,7 +57,7 @@ void NeuralNetwork<var>::Correcting(
 
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<var>.Correcting(var*,size_t,var*,size_t,var*,var*,size_t) is done",
+		"class NeuralNetwork<var>.Correcting(typename*,size_t,typename*,size_t,typename*,typename*,size_t) is done",
 		'i');
 	#endif // DEBUG
 }

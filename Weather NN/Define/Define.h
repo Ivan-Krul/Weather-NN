@@ -1,15 +1,46 @@
 #pragma once
 #include <stdio.h>
+#include <string.h>
 #include <cmath>
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
-void printd(const char msg[],const char type = '\0') {
+void printd(char msg[], const char type = '\0', bool need_n = true) {
+	char s[256] = "";
+	strcpy(s, msg);
+
+	if (need_n)
+		strcat(s, ".\n");
+
 	if(type != '\0')
-		printf("Debug: (%c) %s\n", type, msg);
+		printf("Debug: (%c) %s", type, s);
 	else
-		printf("Debug: (NULL) %s\n", msg);
+		printf("Debug: (0) %s", s);
+}
+template<typename T>
+void printa(T what, char msg[]) {
+	printd(msg, 'v', false);
+	printf(" = ");
+	
+	if(typeid(T) == typeid(float))
+		printf("%f", what);
+	else if (typeid(T) == typeid(double))
+		printf("%e", what);
+	else if (typeid(T) == typeid(short))
+		printf("%h", what);
+	else if (typeid(T) == typeid(int))
+		printf("%i", what);
+	else if (typeid(T) == typeid(long long))
+		printf("%ll", what);
+	else if (typeid(T) == typeid(char))
+		printf("%c", what);
+	else if (typeid(T) == typeid(bool))
+		printf("%b", what);
+	else
+		printf("%x", what);
+
+	printf(".\n");
 }
 #endif // DEBUG
 
