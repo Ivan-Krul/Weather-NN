@@ -14,6 +14,7 @@ private:
 	#endif // DEBUG
 
 	std::pair<std::vector<var>, std::vector<var>> _cur;
+	std::ofstream ofs;
 public:
 	Tester();
 

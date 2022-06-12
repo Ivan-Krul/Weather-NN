@@ -15,9 +15,9 @@ int main() {
 	#endif // DEBUG msg activation
 	//////////////////////////////////////////
 
-	Task<float, 4, 2> t;
+	Task<float, 4, 5> t;
 	NeuralNetwork<float> nn(4,2,0.1,true);
-	Tester<float, 4, 2> te;
+	Tester<float, 4, 5> te;
 
 	nn.push_back(3);
 	nn.push_back(2);
@@ -27,12 +27,15 @@ int main() {
 
 	te.write(nn, t);
 	nn.calculate();
-	te.check(nn);
+	for(size_t i = 0; i < 1000; i++) {
+		te.check(nn);
 
-	nn.calculate();
+		nn.calculate();
 
-	for(size_t i = 0; i < 2; i++)
-		printf("%f\n", nn.output()[i]);
+		//for(size_t i = 0; i < 2; i++)
+		//	printf("%f ", nn.output()[i]);
+		//printf("\n");
+	}
 
 	//////////////////////////////////////////
 	#ifdef DEBUG

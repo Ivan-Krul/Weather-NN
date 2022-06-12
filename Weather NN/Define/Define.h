@@ -3,7 +3,7 @@
 #include <string.h>
 #include <cmath>
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 //////////////////////////////////////////
