@@ -13,8 +13,7 @@ void NeuralNetwork<var>::Forward(var* Li, size_t size_li, var* W, size_t size_w,
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>::Forward(var* Li, size_t size_li,var* W, size_t size_w,var* Lo, size_t size_lo) is done",
-		'i');
+	printi("class NeuralNetwork<var>::Forward(var* Li, size_t size_li,var* W, size_t size_w,var* Lo, size_t size_lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -31,14 +30,13 @@ void NeuralNetwork<var>::Backward(var* Ei, size_t size_li, var* W, size_t size_w
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class void NeuralNetwork<var>::Backward(var* Ei, size_t size_li, var* W, size_t size_w, var* Eo, size_t size_lo) is done",
-		'i');
+	printi("class void NeuralNetwork<var>::Backward(var* Ei, size_t size_li, var* W, size_t size_w, var* Eo, size_t size_lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
 
 template <typename var>
-void NeuralNetwork<var>::Correcting(var* Li, size_t size_li, * W, size_t size_w, var* Lo, var* Eo, size_t size_lo) {
+void NeuralNetwork<var>::Correcting(var* Li, size_t size_li,var* W, size_t size_w, var* Lo, var* Eo, size_t size_lo) {
 	for (size_t o = 0;o < size_lo;o++) {
 		for (size_t i = 0;i < size_li;i++) {
 			W[size_li * o + i] += _coef_learn * Li[i] * Eo[o] //;
@@ -49,9 +47,7 @@ void NeuralNetwork<var>::Correcting(var* Li, size_t size_li, * W, size_t size_w,
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::Correcting(var* Li, size_t size_li, * W, size_t size_w, var* Lo, var* Eo, size_t size_lo) is done",
-		'i');
+	printi("class NeuralNetwork<var>::Correcting(var* Li, size_t size_li, * W, size_t size_w, var* Lo, var* Eo, size_t size_lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }

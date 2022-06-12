@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "Neural Network/Task/Task.h"
 #include "Define/Define.h"
+#include "Neural Network/Tester/Tester.h"
 
 int main() {
 	srand(0);
@@ -15,15 +16,23 @@ int main() {
 	//////////////////////////////////////////
 
 	Task<float, 4, 2> t;
+	NeuralNetwork<float> nn(4,2,0.1,true);
+	Tester<float, 4, 2> te;
+
+	nn.push_back(3);
+	nn.push_back(2);
+
 	t.load("bbb.txt");
 	t.begin();
 
-	auto p = t.test();
+	te.write(nn, t);
+	nn.calculate();
+	te.check(nn);
 
-	for(size_t i = 0; i < p.first.size(); i++)
-		printf("%f\n", p.first[i]);
-	for(size_t i = 0; i < p.second.size(); i++)
-		printf("%f\n", p.second[i]);
+	nn.calculate();
+
+	for(size_t i = 0; i < 2; i++)
+		printf("%f\n", nn.output()[i]);
 
 	//////////////////////////////////////////
 	#ifdef DEBUG

@@ -9,8 +9,7 @@ NeuralNetwork<var>::NeuralNetwork(
 ) {
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is launched",
-		'i');
+	printi("class NeuralNetwork<var> is launched");
 	#endif // DEBUG
 	//////////////////////////////////////////
 
@@ -29,7 +28,7 @@ void NeuralNetwork<var>::init(size_t neu_inp, size_t neu_out, float coef_learn, 
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>::init(size_t neu_inp, size_t neu_out, float coef_learn, bool is_rand) is started succesful",'i');
+	printi("class NeuralNetwork<var>::init(size_t neu_inp, size_t neu_out, float coef_learn, bool is_rand) is started succesful");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -44,9 +43,7 @@ void NeuralNetwork<var>::push_back(size_t size) {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::push_back(size_t size) is done",
-		'i');
+	printi("class NeuralNetwork<var>::push_back(size_t size) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -58,9 +55,7 @@ void NeuralNetwork<var>::input(std::vector<var> inp_neu) {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::input(std::vector<var> inp_neu) is done",
-		'i');
+	printi("class NeuralNetwork<var>::input(std::vector<var> inp_neu) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -69,9 +64,7 @@ template<typename var>
 std::vector<var> NeuralNetwork<var>::calculate() {
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::calculate() has starting",
-		'i');
+	printi("class NeuralNetwork<var>::calculate() has starting");
 	#endif // DEBUG
 	//////////////////////////////////////////
 
@@ -90,15 +83,14 @@ std::vector<var> NeuralNetwork<var>::calculate() {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::calculate() is done",
-		'i');
+	printi("class NeuralNetwork<var>::calculate() is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 
 	return out;
 }
 
+template<typename var>
 std::vector<var> NeuralNetwork<var>::output() {
 	std::vector<var> out;
 	out.resize(_out_neu.size());
@@ -113,9 +105,7 @@ template<typename var>
 void NeuralNetwork<var>::correct(std::vector<var> must_be) {
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::correct(std::vector<var> must_be) has starting",
-		'i');
+	printi("class NeuralNetwork<var>::correct(std::vector<var> must_be) has starting");
 	#endif // DEBUG
 	//////////////////////////////////////////
 
@@ -140,9 +130,7 @@ void NeuralNetwork<var>::correct(std::vector<var> must_be) {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::correct(std::vector<var> must_be) is done",
-		'i');
+	printi("class NeuralNetwork<var>::correct(std::vector<var> must_be) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -156,7 +144,7 @@ void NeuralNetwork<var>::reinit(
 ) {
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is starting restart", 'i');
+	printi("class NeuralNetwork<var> is starting restart");
 	#endif // DEBUG
 	//////////////////////////////////////////
 
@@ -168,7 +156,7 @@ void NeuralNetwork<var>::reinit(
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is restarted succesful", 'i');
+	printi("class NeuralNetwork<var> is restarted succesful");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -188,7 +176,7 @@ void NeuralNetwork<var>::finit() {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is finished succesful", 'i');
+	printi("class NeuralNetwork<var> is finished succesful");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -199,7 +187,7 @@ NeuralNetwork<var>::~NeuralNetwork() {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var> is ended up", 'i');
+	printi("class NeuralNetwork<var> is ended up");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }

@@ -16,23 +16,29 @@ void printd(char msg[], const char type = '\0', bool need_n = true) {
 
 	switch(type) {
 		case '\0':
-			printf("Debug: (0) %s", s);
+			printf("Debug: (0)           %s", s);
+			break;
+		case  'D':
+			printf("Debug: (Debug)       %s", s);
 			break;
 		default:
-			printf("Debug: (%c) %s", type, s);
+			printf("Debug: (%c)           %s", type, s);
 			break;
 	}
 
 }
 //////////////////////////////////////////
+void printi(char msg[]) {
+	printf("Debug: (Info)        %s.\n", msg);
+}
+//////////////////////////////////////////
 void printe(std::system_error e) {
-	printf("\n\tError: (%i) %s\n\n", e.code().value(), e.what());
+	printf("Debug: (Error) [%i] %s.\n", e.code().value(), e.what());
 }
 //////////////////////////////////////////
 template<typename T>
 void printa(T what, char msg[]) {
-	printd(msg, 'v', false);
-	printf(" = ");
+	printf("Debug: (Value)       %s = ",msg);
 
 	if(typeid(T) == typeid(float))
 		printf("%f", what);
@@ -53,6 +59,12 @@ void printa(T what, char msg[]) {
 
 	printf(".\n");
 }
+
+// Debug: (0)           text.
+// Debug: (Debug)       text.
+// Debug: (Info)        text.
+// Debug: (Error) [999] text.
+// Debug: (Value)       text.
 //////////////////////////////////////////
 #endif // DEBUG
 

@@ -4,7 +4,7 @@ template<typename T, size_t size_inp, size_t size_out>
 Task<T, size_inp, size_out>::Task() {
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class Task<T, size_inp, size_out> is launched", 'i');
+	printi("class Task<T, size_inp, size_out> is launched");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -37,7 +37,7 @@ void Task<T, size_inp, size_out>::load(std::string dir_and_name_and_format) {
 
 		//////////////////////////////////////////
 		#ifdef DEBUG
-		printd("class Task<T, size_inp, size_out>::load(std::string dir_and_name_and_format) is done", 'i');
+		printi("class Task<T, size_inp, size_out>::load(std::string dir_and_name_and_format) is done");
 		#endif // DEBUG
 		//////////////////////////////////////////
 	}
@@ -76,7 +76,7 @@ std::pair<std::vector<T>, std::vector<T>> Task<T, size_inp, size_out>::test() {
 
 		//////////////////////////////////////////
 		#ifdef DEBUG
-		printd("class Task<T, size_inp, size_out>::test() is done", 'i');
+		printi("class Task<T, size_inp, size_out>::test() is done");
 		#endif // DEBUG
 		//////////////////////////////////////////
 
@@ -99,7 +99,7 @@ void Task<T, size_inp, size_out>::begin() {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class Task<T, size_inp, size_out>::begin() is done", 'i');
+	printi("class Task<T, size_inp, size_out>::begin() is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -108,7 +108,7 @@ template<typename T, size_t size_inp, size_t size_out>
 Task<T, size_inp, size_out>::~Task() {
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class Task<T, size_inp, size_out> is ended up", 'i');
+	printi("class Task<T, size_inp, size_out> is ended up");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }

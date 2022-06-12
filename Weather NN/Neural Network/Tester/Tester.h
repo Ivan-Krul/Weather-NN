@@ -2,8 +2,10 @@
 #include "../Task/Task.h"
 #include "../Neural Network.h"
 #include "../../Define/Define.h"
+#include <vector>
+#include <fstream>
 
-template<typename var>
+template<typename var,size_t size_inp,size_t size_out>
 class Tester {
 	#ifdef DEBUG
 public:
@@ -13,8 +15,12 @@ private:
 
 	std::pair<std::vector<var>, std::vector<var>> _cur;
 public:
-	void write(NeuralNetwork<var> nn, Task t);
+	Tester();
 
-	void check(NeuralNetwork<var> nn);
+	void write(NeuralNetwork<var>& nn, Task<var,size_inp,size_out>& t);
+
+	void check(NeuralNetwork<var>& nn);
+
+	~Tester();
 };
 #include "Tester.cpp"

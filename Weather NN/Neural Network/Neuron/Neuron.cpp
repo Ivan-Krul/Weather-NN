@@ -4,7 +4,7 @@ template<typename var>
 neuron<var>::neuron() {
 		//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("struct neuron<var> is launched", 'i');
+	printi("struct neuron<var> is launched");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -26,7 +26,7 @@ void neuron<var>::init_weight(bool is_rand, size_t parent_l) {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("struct neuron<var>::init_weight(bool is_rand, size_t parent_l) is done", 'i');
+	printi("struct neuron<var>::init_weight(bool is_rand, size_t parent_l) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -35,7 +35,7 @@ template<typename var>
 neuron<var>::~neuron() {
 		//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("struct neuron<var> is ended up", 'i');
+	printi("struct neuron<var> is ended up");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }

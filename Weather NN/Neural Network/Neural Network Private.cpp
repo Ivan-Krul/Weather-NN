@@ -15,8 +15,7 @@ void NeuralNetwork<var>::Forward(std::vector<var>& Li, std::vector<neuron<var>>&
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>::Forward(std::vector<var>& Li, std::vector<neuron<var>>& Lo) is done",
-		'i');
+	printi("class NeuralNetwork<var>::Forward(std::vector<var>& Li, std::vector<neuron<var>>& Lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -35,8 +34,7 @@ void NeuralNetwork<var>::Forward(std::vector<neuron<var>>& Li, std::vector<neuro
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>::Forward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done",
-		'i');
+	printi("class NeuralNetwork<var>::Forward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -51,8 +49,7 @@ void NeuralNetwork<var>::Backward(std::vector<neuron<var>>& Li, std::vector<neur
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>::Backward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done",
-		'i');
+	printi("class NeuralNetwork<var>::Backward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -73,9 +70,7 @@ void NeuralNetwork<var>::Correcting(std::vector<neuron<var>>& Li, std::vector<ne
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::Correcting(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done",
-		'i');
+	printi("class NeuralNetwork<var>::Correcting(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -96,9 +91,7 @@ void NeuralNetwork<var>::Correcting(std::vector<var>& Li, std::vector<neuron<var
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd(
-		"class NeuralNetwork<var>::Correcting(std::vector<var>& Li, std::vector<neuron<var>>& Lo) is done",
-		'i');
+	printi("class NeuralNetwork<var>::Correcting(std::vector<var>& Li, std::vector<neuron<var>>& Lo) is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
@@ -124,8 +117,7 @@ void NeuralNetwork<var>::AdaptWeight() {
 
 	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>::AdaptWeight() is done",
-		'i');
+	printi("class NeuralNetwork<var>::AdaptWeight() is done");
 	#endif // DEBUG
 	//////////////////////////////////////////
 }
