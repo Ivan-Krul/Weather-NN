@@ -3,6 +3,7 @@
 #include "../../Define/Define.h"
 
 template<typename var> struct neuron {
+public:
 	std::vector<var> _weight;
 	var _val = 0;
 	var _bias = 0;

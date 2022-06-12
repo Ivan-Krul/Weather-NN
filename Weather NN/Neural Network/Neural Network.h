@@ -36,6 +36,7 @@ template <typename var> class NeuralNetwork {
 
 	void input(std::vector<var> inp_neu);
 	std::vector<var> calculate();
+	std::vector<var> output()
 	void correct(std::vector<var> must_be);
 
 	void reinit(size_t neu_inp, size_t neu_out, float coef_learn, bool is_rand);

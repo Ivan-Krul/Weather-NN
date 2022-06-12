@@ -99,6 +99,16 @@ std::vector<var> NeuralNetwork<var>::calculate() {
 	return out;
 }
 
+std::vector<var> NeuralNetwork<var>::output() {
+	std::vector<var> out;
+	out.resize(_out_neu.size());
+
+	for(size_t i = 0; i < out.size(); i++)
+		out[i] = _out_neu[i]._val;
+
+	return out;
+}
+
 template<typename var>
 void NeuralNetwork<var>::correct(std::vector<var> must_be) {
 	//////////////////////////////////////////
