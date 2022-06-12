@@ -6,23 +6,18 @@
 #include <cassert>
 #include "../../Define/Define.h"
 
-template <typename T,size_t size_inp, size_t size_out> class Task {
-	#define vec std::vector<T>
-	#define pai std::pair<vec, vec>
-
+template <typename T, size_t size_inp, size_t size_out> class Task {
 	#ifdef DEBUG
-	public:
+public:
 	#else
-	private:
+private:
 	#endif // DEBUG
 
-	
-
-	std::list<std::pair<vec, vec>> _data;
+	std::list<std::pair<std::vector<T>, std::vector<T>>> _data;
 
 	size_t _num_test = 0;
-	
-	public:
+
+public:
 	Task();
 
 	void load(std::string dir_and_name_and_format);
@@ -31,7 +26,7 @@ template <typename T,size_t size_inp, size_t size_out> class Task {
 	const size_t size();
 
 	void begin();
-	std::pair<vec, vec> test();
+	std::pair<std::vector<T>, std::vector<T>> test();
 
 	~Task();
 };

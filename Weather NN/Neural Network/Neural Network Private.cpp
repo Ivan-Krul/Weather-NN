@@ -13,10 +13,12 @@ void NeuralNetwork<var>::Forward(std::vector<var>& Li, std::vector<neuron<var>>&
 		Lo[o]._val = var(1.0) / (var(1.0) + var(exp(-1.0 * Lo[o]._val)));
 	}
 
+	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<typename>.Forward(std::vector<typename>,std::vector<neuron<var>>) is done",
+	printd("class NeuralNetwork<var>::Forward(std::vector<var>& Li, std::vector<neuron<var>>& Lo) is done",
 		'i');
 	#endif // DEBUG
+	//////////////////////////////////////////
 }
 
 template <typename var>
@@ -31,10 +33,12 @@ void NeuralNetwork<var>::Forward(std::vector<neuron<var>>& Li, std::vector<neuro
 		Lo[o]._val = var(1.0) / (var(1.0) + exp(var(-1.0) * Lo[o]._val));
 	}
 
+	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<var>.Forward(std::vector<neuron<var>>,std::vector<neuron<var>>) is done",
+	printd("class NeuralNetwork<var>::Forward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done",
 		'i');
 	#endif // DEBUG
+	//////////////////////////////////////////
 }
 
 template <typename var>
@@ -45,10 +49,12 @@ void NeuralNetwork<var>::Backward(std::vector<neuron<var>>& Li, std::vector<neur
 			Li[i]._error += Lo[o]._error * Lo[o]._weight[i];
 	}
 
+	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<typename>.Backward(std::vector<neuron<typename>>,std::vector<neuron<typename>>) is done",
+	printd("class NeuralNetwork<var>::Backward(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done",
 		'i');
 	#endif // DEBUG
+	//////////////////////////////////////////
 }
 
 template <typename var>
@@ -65,11 +71,13 @@ void NeuralNetwork<var>::Correcting(std::vector<neuron<var>>& Li, std::vector<ne
 			* Lo[o]._val * (var(1.0) - Lo[o]._val);
 	}
 
+	//////////////////////////////////////////
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<typename>.Correcting(std::vector<neuron<typename>>,std::vector<neuron<typename>>) is done",
+		"class NeuralNetwork<var>::Correcting(std::vector<neuron<var>>& Li, std::vector<neuron<var>>& Lo) is done",
 		'i');
 	#endif // DEBUG
+	//////////////////////////////////////////
 }
 
 template <typename var>
@@ -86,11 +94,13 @@ void NeuralNetwork<var>::Correcting(std::vector<var>& Li, std::vector<neuron<var
 			* Lo[o]._val * (var(1.0) - Lo[o]._val);
 	}
 
+	//////////////////////////////////////////
 	#ifdef DEBUG
 	printd(
-		"class NeuralNetwork<typename>.Correcting(std::vector<typename>,std::vector<neuron<typename>>) is done",
+		"class NeuralNetwork<var>::Correcting(std::vector<var>& Li, std::vector<neuron<var>>& Lo) is done",
 		'i');
 	#endif // DEBUG
+	//////////////////////////////////////////
 }
 
 template<typename var>
@@ -112,9 +122,11 @@ void NeuralNetwork<var>::AdaptWeight() {
 		}
 	}
 
+	//////////////////////////////////////////
 	#ifdef DEBUG
-	printd("class NeuralNetwork<typename>.AdaptWeight() is done",
+	printd("class NeuralNetwork<var>::AdaptWeight() is done",
 		'i');
 	#endif // DEBUG
+	//////////////////////////////////////////
 }
 

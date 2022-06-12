@@ -3,45 +3,57 @@
 #include <string.h>
 #include <cmath>
 
-//#define DEBUG
+#define DEBUG
 
 #ifdef DEBUG
+//////////////////////////////////////////
 void printd(char msg[], const char type = '\0', bool need_n = true) {
 	char s[256] = "";
 	strcpy(s, msg);
 
-	if (need_n)
+	if(need_n)
 		strcat(s, ".\n");
 
-	if(type != '\0')
-		printf("Debug: (%c) %s", type, s);
-	else
-		printf("Debug: (0) %s", s);
+	switch(type) {
+		case '\0':
+			printf("Debug: (0) %s", s);
+			break;
+		default:
+			printf("Debug: (%c) %s", type, s);
+			break;
+	}
+
 }
+//////////////////////////////////////////
+void printe(std::system_error e) {
+	printf("\n\tError: (%i) %s\n\n", e.code().value(), e.what());
+}
+//////////////////////////////////////////
 template<typename T>
 void printa(T what, char msg[]) {
 	printd(msg, 'v', false);
 	printf(" = ");
-	
+
 	if(typeid(T) == typeid(float))
 		printf("%f", what);
-	else if (typeid(T) == typeid(double))
+	else if(typeid(T) == typeid(double))
 		printf("%e", what);
-	else if (typeid(T) == typeid(short))
+	else if(typeid(T) == typeid(short))
 		printf("%h", what);
-	else if (typeid(T) == typeid(int))
+	else if(typeid(T) == typeid(int))
 		printf("%i", what);
-	else if (typeid(T) == typeid(long long))
+	else if(typeid(T) == typeid(long long))
 		printf("%ll", what);
-	else if (typeid(T) == typeid(char))
+	else if(typeid(T) == typeid(char))
 		printf("%c", what);
-	else if (typeid(T) == typeid(bool))
+	else if(typeid(T) == typeid(bool))
 		printf("%b", what);
 	else
 		printf("%x", what);
 
 	printf(".\n");
 }
+//////////////////////////////////////////
 #endif // DEBUG
 
 namespace random {
