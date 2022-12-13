@@ -3,12 +3,6 @@
 #include "../Define/Define.h"
 #include "Neuron/Neuron.h"
 template <typename var> class NeuralNetwork {
-	#ifdef DEBUG
-	public:
-	#else
-	private:
-	#endif // DEBUG
-
 	float _coef_learn;
 	bool _is_rand;
 

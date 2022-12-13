@@ -7,12 +7,6 @@
 #include "../../Define/Define.h"
 
 template <typename T, size_t size_inp, size_t size_out> class Task {
-	#ifdef DEBUG
-public:
-	#else
-private:
-	#endif // DEBUG
-
 	std::list<std::pair<std::vector<T>, std::vector<T>>> _data;
 
 	size_t _num_test = 0;
